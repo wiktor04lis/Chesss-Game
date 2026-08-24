@@ -1,11 +1,10 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Piece {
     private int row;
     private int col;
     private boolean isWhite;
-    private ArrayList<Move> legalMoves;
+    private ArrayList<Move> legalMoves = new ArrayList<>();
     private IMovementBehaviour movementBehaviour;
 
     public Piece(int row, int col, boolean isWhite) {
@@ -14,7 +13,7 @@ public abstract class Piece {
         this.isWhite = isWhite;
     }
 
-    public List<Move> findLegalMoves(Board board) {
+    public ArrayList<Move> findLegalMoves(Board board) {
         legalMoves = movementBehaviour.getLegalMoves(board, this);
         return legalMoves;
     }
