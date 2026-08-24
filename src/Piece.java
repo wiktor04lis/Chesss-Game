@@ -6,7 +6,7 @@ public abstract class Piece {
     private int col;
     private boolean isWhite;
     private ArrayList<Move> legalMoves;
-    private IMovmentBehaviour movmentBehaviour;
+    private IMovementBehaviour movementBehaviour;
 
     public Piece(int row, int col, boolean isWhite) {
         this.row = row;
@@ -15,12 +15,12 @@ public abstract class Piece {
     }
 
     public List<Move> findLegalMoves(Board board) {
-        legalMoves = movmentBehaviour.getLegalMoves(board, this);
+        legalMoves = movementBehaviour.getLegalMoves(board, this);
         return legalMoves;
     }
 
     public boolean isValidMove(Board board, int toRow, int toCol){
-        return movmentBehaviour.isValidMove(board, this, toRow, toCol);
+        return movementBehaviour.isValidMove(board, this, toRow, toCol);
     }
 
     public ArrayList<Move> getLegalMoves() {
@@ -43,12 +43,12 @@ public abstract class Piece {
         return isWhite;
     }
 
-    public IMovmentBehaviour getMovmentBehaviour() {
-        return movmentBehaviour;
+    public IMovementBehaviour getMovementBehaviour() {
+        return movementBehaviour;
     }
 
-    public void setMovmentBehaviour(IMovmentBehaviour movmentBehaviour) {
-        this.movmentBehaviour = movmentBehaviour;
+    public void setMovementBehaviour(IMovementBehaviour movementBehaviour) {
+        this.movementBehaviour = movementBehaviour;
     }
     
 }
