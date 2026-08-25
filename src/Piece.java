@@ -18,8 +18,11 @@ public abstract class Piece {
         return legalMoves;
     }
 
-    public boolean isValidMove(Board board, int toRow, int toCol){
-        return movementBehaviour.isValidMove(board, this, toRow, toCol);
+    public boolean isValidMove(Board board, Piece piece, int toRow, int toCol){
+        if (piece.getLegalMoves().contains(new Move(toRow, toCol))) {
+            return true;
+        }
+        return piece.findLegalMoves(board).contains(new Move(toRow, toCol));
     }
 
     public ArrayList<Move> getLegalMoves() {

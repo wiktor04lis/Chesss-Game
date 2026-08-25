@@ -4,14 +4,6 @@ public abstract class DirectionalMovement implements IMovementBehaviour{
     public abstract int[][] getDirection();
 
     @Override
-    public boolean isValidMove(Board board, Piece piece, int toRow, int toCol){
-        if (piece.getLegalMoves().contains(new Move(toRow, toCol))) {
-            return true;
-        }
-        return piece.findLegalMoves(board).contains(new Move(toRow, toCol));
-    }
-
-    @Override
     public ArrayList<Move> getLegalMoves(Board board, Piece piece){
         ArrayList<Move> moves = piece.getLegalMoves();
         for(int[] direction : getDirection()){
