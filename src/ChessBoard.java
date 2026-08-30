@@ -39,6 +39,7 @@ public class ChessBoard extends JFrame{
         for(int row=0; row < 8; row++){
             for(int col=0; col < 8; col++){
                 squares[row][col] = new JButton();
+                squares[row][col].setName(row + "," + col);
                 if ((row + col) % 2 == 0) {
                     squares[row][col].setBackground(DARK_WOOD);
                 } else {
@@ -75,7 +76,7 @@ public class ChessBoard extends JFrame{
         try {
             return ImageIO.read(getClass().getResource("resources/images/" + filename));
         } catch (Exception e) {
-            System.out.println("Faild to load image: " + filename);
+            System.out.println("Failed to load image: " + filename);
             return null;
         }
     }
@@ -89,12 +90,12 @@ public class ChessBoard extends JFrame{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("e.getID = " + e.getID());
-            System.out.println("e.getActionCommand = " + e.getActionCommand());
-            System.out.println("e.getModifiers = " + e.getModifiers());
-            System.out.println("e.paramString = " + e.paramString());
-            System.out.println("e.getSource = " + e.getSource());
-            System.out.println("Button[0][0] = " + squares[0][0]);
+            JButton square = (JButton) e.getSource();
+            String[] clicked = square.getName().split(",");
+            int row = Integer.parseInt(clicked[0]);
+            int col = Integer.parseInt(clicked[1]);
+            // TO DO: send the data to the controller
+
         }
 
     }
