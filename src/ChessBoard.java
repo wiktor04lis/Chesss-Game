@@ -86,6 +86,14 @@ public class ChessBoard extends JFrame{
         
     }
 
+    public void addPiece(int row, int col, String colour, String firstLetter){
+        setSquare(row, col, pieceImage.get(colour + firstLetter));
+    }
+
+    public void removePiece(int row, int col){
+        squares[row][col].setIcon(null);
+    }
+
     private class myActionListener implements ActionListener{
 
         @Override
